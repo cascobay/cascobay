@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+</head>
+
+<body>
+
+  <!--Header includes logo to link back to FCB Website & App Title-->
+  <header>
+    <a class="FCB-Logo" href="http://www.cascobay.org/">
+		  <img src="http://www.cascobay.org/wp-content/uploads/2014/05/FOCB-logo_FINAL-300x78.png" alt="Friends of Casco Bay" id="logo">
+		</a>
+    <h1 class="app-title">[App Name]</h1>
+  </header>
+
+  <!--Dynamic Content for each water quality site       -->
+  <!--Absolutely positioned (left) over the Map element -->
+  <section class="site-content">
+    <div class="site-header">
+      <h1 class="site-name"> {layer.sitename} </h1>
+      <h3 class="site-location"> {layer.sitelocation} </h3>
+      <!--TODO: Dynamic Graphic, top right corner of .site-content, next to site-name-->
+      <div class="site-index-graphic"> {layer.index} </div>
+    </div> <!-- END site-header -->
+    <div class="site-body">
+      <img class="site-picture" src="http://placehold.it/350x150" alt="Placeholder">
+      <p class="site-description"> {layer.sitedescription} </p>
+
+      <div class="site-data-window">
+        <ul class="site-data-navbar">
+          <li> Interpretation </li>
+          <li> pH </li>
+          <li> DO </li>
+        </ul>
+      </div>
+    </div> <!-- END site-body -->
+    <div class="site-footer"></div> <!-- END site-footer -->
+  </section>
+
+  <!--Leaflet Map Element that will be mounted by L.map("Map")-->
+  <div id="Map"></div>
+
+  <script src='./bundle.js'></script>
+</body>
+</html>
