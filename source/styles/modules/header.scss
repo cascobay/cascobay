@@ -1,0 +1,20 @@
+@import '../layout/grid.scss';
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: $col-4;
+}
+
+.title {
+  // width: $col-8;
+  font-size: 3em;
+  font: old sans black;
+  align-self: center;
+  width: $col-8;
+  border: 1px solid black;
+}

@@ -1,2 +1,7 @@
 @import './base.scss';
-@import './layout.scss';
+@import './layout/layout.scss';
+@import './util/utilities.scss';
+
+/*Modules*/
+@import './modules/sidebar.scss';
+@import './modules/header.scss';

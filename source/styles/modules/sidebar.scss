@@ -1,0 +1,40 @@
+@import "../layout/grid.scss";
+@import "../colors.scss";
+
+
+.sidebar {
+  background-color: rgba(255, 255, 255, .1);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.sidebar-header {
+}
+
+.sidebar-body {
+  margin: 1% 0;
+  height: 50%;
+}
+.sidebar-footer {
+  margin: 1% 0;
+}
+
+.sidebar-picture {
+}
+
+.sidebar-data-window-navbar {
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-around;
+}
+
+.sidebar-description {
+  overflow: auto;
+  height: 40%;
+  padding: 2% 10%;
+  text-align: justify;
+}
+.data-window-button {
+  flex: 1;
+}
