@@ -20,9 +20,13 @@ export default {
     layers: [grayscale]
     //TODO: maxbounds: []
   },
-
+  cartodb_options: {
+    cartodb_logo: false,
+    legends: false,
+    https: true,
+    attributionControl: true
+  },
   mapboxUrl: mbUrl,
-
   baselayers: {
     'Grayscale': grayscale,
     'Satellite': satellite
