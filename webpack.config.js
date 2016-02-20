@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'source/js/main.js'),
+  entry: path.resolve(__dirname, 'source/main.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
@@ -19,38 +19,43 @@ module.exports = {
     preLoaders: [
       {
         test: /\.js?$/,
-        loaders: ['eslint']
-        // include: PATHS.app
+        loaders: ['eslint'],
+        include: path.resolve(__dirname, 'source')
       }
     ],
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: '/node_modules/',
+        include: path.resolve(__dirname, 'source'),
         query: {
           presets: 'es2015'
         }
       },
       //For CSS Modules
       {
-        test: /\.css$/, loaders: ['style', 'css']
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: path.resolve(__dirname, 'source')
       },
       //For SASS Modules
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css', 'sass'],
+        include: path.resolve(__dirname, 'source')
       }
 
     ]
   },
-  //webpack will assume modules without a suffix are these types
+
   resolve: {
     root: path.resolve(__dirname),
     alias: {
       styles: 'source/styles',
-      cartodb: path.resolve(__dirname, 'bower_components/cartodb.js/cartodb.js')
+      cartodb:  'bower_components/cartodb.js/cartodb.js',
+      mapboxCore: 'bower_components/mapbox.js/mapbox.standalone.js'
     },
+    //webpack will assume modules without a suffix are these types
     extensions: ['', '.js']
   },
   plugins: [
