@@ -48,7 +48,8 @@ module.exports = {
   resolve: {
     root: path.resolve(__dirname),
     alias: {
-      styles: 'source/styles'
+      styles: 'source/styles',
+      cartodb: path.resolve(__dirname, 'bower_components/cartodb.js/cartodb.js')
     },
     extensions: ['', '.js']
   },
