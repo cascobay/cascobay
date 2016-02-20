@@ -52,8 +52,6 @@ module.exports = {
     root: path.resolve(__dirname),
     alias: {
       styles: 'source/styles',
-      cartodb:  'bower_components/cartodb.js/cartodb.js',
-      mapboxCore: 'bower_components/mapbox.js/mapbox.standalone.js'
     },
     //webpack will assume modules without a suffix are these types
     extensions: ['', '.js']
