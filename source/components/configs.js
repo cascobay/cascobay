@@ -1,22 +1,28 @@
 // Hidden implementation details
 const mbAccessToken = 'pk.eyJ1IjoiYmZyaWVkbHkiLCJhIjoiV2k5ZDRoZyJ9.suhdNFpeRtxt1OTpUVc2Tw';
 
-
-
-
+const mapboxAttribution= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>';
 
 // Exported Object
-module.exports = {
+export default {
   leaflet: {
-    center: [43.761921, 70.080350],
-    zoom: 12,
-    minZoom: 14,
-    maxzoom: 21,
-    maxbounds: []
+    center: [43.761921, -70.080350],
+    zoom: 8,
+    minZoom: 2,
+    maxzoom: 21
+    //TODO: maxbounds: []
   },
+
   mapboxUrl: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mbAccessToken,
-  mapboxOptions: {
 
+  grayBasemap: {
+    id: 'mapbox.light',
+    attribution: mapboxAttribution
+  },
+  satelliteBasemap: {
+    id: 'mapbox.earth',
+    attribution: mapboxAttribution
   }
-
 };
