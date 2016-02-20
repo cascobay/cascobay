@@ -1,7 +1,8 @@
+import cdbLayerSource from './layer';
+
 // Variables local to this module
 const mbAccessToken = 'pk.eyJ1IjoiYmZyaWVkbHkiLCJhIjoiV2k5ZDRoZyJ9.suhdNFpeRtxt1OTpUVc2Tw';
 const mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mbAccessToken;
-
 const mapboxAttribution= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <a href="http://mapbox.com">Mapbox</a>';
@@ -16,7 +17,7 @@ export default {
     zoom: 8,
     minZoom: 2,
     maxzoom: 21,
-    layers: [grayscale, /*,sites*/] //TODO:  define & add sites layer in in layer.js
+    layers: [grayscale]
     //TODO: maxbounds: []
   },
 
