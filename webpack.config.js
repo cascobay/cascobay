@@ -55,7 +55,10 @@ module.exports = {
     alias: {
       styles: 'source/styles',
       components: 'source/js/components',
-      containers: 'source/js/containers'
+      containers: 'source/js/containers',
+      actions: 'source/js/actions',
+      reducers: 'source/js/reducers',
+      store: 'source/js/store'
     },
     //webpack will assume modules without a suffix are these types
     extensions: ['', '.js', '.jsx']
