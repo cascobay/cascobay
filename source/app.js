@@ -1,15 +1,23 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 
-//TODO: import header, sidebar, map elements
+// Import Styles
+import style from 'styles/main.scss';
+
+// Import react components
+import Header from 'components/header';
+import Sidebar from 'components/sidebar';
+import Map from 'components/map';
 
 // App component
 const App = React.createClass({
   render () {
     return (
-      <Header />
-      <Sidebar />
-      <Map />
+      <div>
+        <Header />
+        <Sidebar />
+        <Map/>
+      </div>
     );
   }
 });

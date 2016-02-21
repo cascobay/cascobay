@@ -25,11 +25,11 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         include: path.resolve(__dirname, 'source'),
         query: {
-          presets: 'es2015'
+          presets: ['es2015', 'react']
         }
       },
       //For CSS Modules
@@ -54,9 +54,11 @@ module.exports = {
     moduleDirectories: ['node_modules', 'bower_components'],
     alias: {
       styles: 'source/styles',
+      components: 'source/js/components',
+      containers: 'source/js/containers'
     },
     //webpack will assume modules without a suffix are these types
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
