@@ -1,0 +1,22 @@
+{
+  "name": "cascobay",
+  "description": "Casco Bay Water Quality Web app",
+  "main": "source/main.js",
+  "authors": [
+    "bfreeds <brandynfriedly@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cartodb.js": "^3.15.9"
+  }
+}

@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'source/main.js'),
@@ -35,9 +36,10 @@ module.exports = {
       //For CSS Modules
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: path.resolve(__dirname, 'source')
+        loaders: ['style', 'css']
+        // include: path.resolve(__dirname, 'source')
       },
+      { test: /.(png|woff(2)?|eot|gif|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' },
       //For SASS Modules
       {
         test: /\.scss$/,
@@ -50,6 +52,7 @@ module.exports = {
 
   resolve: {
     root: path.resolve(__dirname),
+    moduleDirectories: ['node_modules', 'bower_components'],
     alias: {
       styles: 'source/styles',
     },

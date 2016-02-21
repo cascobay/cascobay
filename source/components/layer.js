@@ -1,10 +1,28 @@
-//TODO: Break CartoCSS into its own module
-export default {
-    	user_name:'bfriedly',
-    	type:'cartodb',
-      sublayers:[{
-      	sql:'SELECT * FROM casco_water_quality_data',
-				cartocss:'#casco_water_quality_data{ marker-fill-opacity: 0.8; marker-line-color: #000000; marker-line-width: .5; marker-line-opacity: 1; marker-width: 12; marker-allow-overlap: true; } #casco_water_quality_data [zoom>=11]{ marker-width: 17; } #casco_water_quality_data [zoom>=12]{ marker-width: 20; } #casco_water_quality_data [zoom>=14]{ marker-width: 25; } #casco_water_quality_data [ index <= 100] { marker-fill: #91cf60; } #casco_water_quality_data [ index <= 85] { marker-fill: #ffffbf; } #casco_water_quality_data [ index <= 70] { marker-fill: #fc8d59; }',
-        interactivity: 'cartodb_id, sitename, sitelocation, sitedescription, index'
-      }]
+import d3 from 'd3';
+import configs from './configs';
+import cdbLayerSource from './layerSource';
+import featureClickCallback from '../utilities/featureClick';
+
+
+
+export function cdbLayer(mapDomElement) {
+    // Placeholder, will receieve feature data and be used to update D3 function
+    let currentFeature, newFeature = null;
+
+
+    cartodb.createLayer(mapDomElement, cdbLayerSource, configs.cartodb_options)
+    .addTo(mapDomElement)
+    .on('done', function(layer){
+      console.log('CartoDB Layer Loaded.')
+      const sites = layer.getSubLayer(0);
+      // Do stuff after layer loads
+      // Make sure it's on top of the baselayer
+      layer.setZIndex(5)
+      sites.setInteraction(true)
+      // Execute action on interaction event
+      sites.on('featureClick', featureClickCallback) //TODO: write featureClickCallback
+     .on('error', function(err){
+       console.log('A CartoDB data error occurred: ' + err);
+     });
+  });
 }
