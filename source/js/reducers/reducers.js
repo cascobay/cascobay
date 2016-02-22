@@ -46,4 +46,4 @@ function cascoApp(state = {}, action) {
   }
 }
 
-export default  cascoApp
+export default cascoApp
