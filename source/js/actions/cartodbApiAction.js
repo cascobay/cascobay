@@ -40,8 +40,18 @@ export function requestData(featureId) {
 export function receiveData(featureId, json) {
   return {
     type: RECEIVE_DATA,
-    featureId,
+    feature: featureId,
     data: json.data.children.map(child => child.data),
     receivedAt: Data.now()
+  }
+}
+
+// check out https://github.com/reactjs/redux/blob/master/examples/async/actions/index.js
+function fetchPosts(featureId) {
+  return dispatch => {
+    dispatch(requestData(featureId))
+    return fetch(`https://www.reddit.com/r/${reddit}.json`)
+      .then(response => response.json())
+      .then(json => dispatch(receivePosts(reddit, json)))
   }
 }
