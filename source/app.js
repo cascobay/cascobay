@@ -13,7 +13,7 @@ import Map from 'components/map';
 const App = React.createClass({
   render () {
     return (
-      <div>
+      <div className='cf'>
         <Header />
         <Sidebar />
         <Map/>

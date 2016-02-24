@@ -1,10 +1,10 @@
+// import L from 'leaflet';
 // Variables local to this module
 const mbAccessToken = 'pk.eyJ1IjoiYmZyaWVkbHkiLCJhIjoiV2k5ZDRoZyJ9.suhdNFpeRtxt1OTpUVc2Tw';
 const mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mbAccessToken;
 const mapboxAttribution= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <a href="http://mapbox.com">Mapbox</a>';
-
 const grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mapboxAttribution});
 const satellite = L.tileLayer(mbUrl, {id: 'mapbox.satellite', attribution: mapboxAttribution});
 
@@ -15,7 +15,7 @@ export default {
     zoom: 8,
     minZoom: 2,
     maxzoom: 21,
-    layers: [grayscale]
+    layer : [grayscale]
     //TODO: maxbounds: []
   },
   cartodb_options: {
@@ -25,8 +25,6 @@ export default {
     attributionControl: true
   },
   mapboxUrl: mbUrl,
-  baselayers: {
-    'Grayscale': grayscale,
-    'Satellite': satellite
-  }
+  grayscale: grayscale,
+  satellite: satellite
 };
