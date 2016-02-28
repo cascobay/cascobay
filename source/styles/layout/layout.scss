@@ -1,6 +1,13 @@
 @import './grid.scss';
 
 /*High Level Layout Properties*/
+#app { height:100%; width: 100%;}
+
+.layout-App {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
 .layout-header {
   float: left;
   width: $col-12;

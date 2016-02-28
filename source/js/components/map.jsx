@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-// import L from 'leaflet'
+import L from 'leaflet'
+
 import config from './mapConfig';
 
 const Map = React.createClass({
@@ -13,19 +14,17 @@ const Map = React.createClass({
 
   componentDidMount () {
       //runs after map is added to the DOM
-      var map = this.map = L.map(ReactDOM.findDOMNode(this), config.leafet);
+      console.log('Leaflet mounted on : ')
+      console.log(ReactDOM.findDOMNode(this))
 
-      this.state.tileLayer = L.tileLayer(config.mapboxUrl, config.grayscale).addTo(map);
+      const map_node = ReactDOM.findDOMNode(this)
+      const map_object = L.map(map_node, config.leaflet)
 
+      this.state.tileLayer = config.grayscale
+      .addTo(map_object)
 
-    this.setState({
-      tileLayer: this.state.tileLayer
-    });
   },
-  // init (id) {
-  //   // Called after component mounts
-  //   let map_object = L.map(id, config.leaflet);
-  //
+
   //   //set state to include tile layer
   //   this.state.tileLayer = L.tileLayer(config.mapboxUrl, config.grayscale)
   //   .addTo(map_object)

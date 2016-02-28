@@ -13,10 +13,10 @@ import Map from 'components/map';
 const App = React.createClass({
   render () {
     return (
-      <div className='cf'>
-        <Header />
-        <Sidebar />
-        <Map/>
+      <div className='layout-App cf'>
+        <Header className='layout-header' />
+        <Map className='layout-map'/>
+        <Sidebar className='layout-sidebar' />
       </div>
     );
   }
