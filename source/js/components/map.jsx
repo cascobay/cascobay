@@ -16,6 +16,7 @@ const Map = React.createClass({
       //runs after map is added to the DOM
       console.log('Leaflet mounted on : ')
       console.log(ReactDOM.findDOMNode(this))
+      console.log(config.grayscale)
 
       const map_node = ReactDOM.findDOMNode(this)
       const map_object = L.map(map_node, config.leaflet)
