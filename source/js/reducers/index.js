@@ -24,7 +24,7 @@ export const mode = function(state=initialState.mode, action) {
  * HANDLE DATA ACTIONS
 */
 
-function cascoApp(state=initialState, action) {
+export const cascoApp = function(state=initialState, action) {
   return state
 }
 export default cascoApp
