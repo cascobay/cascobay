@@ -1,4 +1,4 @@
-import { AppModes, SidebarFilters } from 'actions'
+import { AppModes, SidebarFilters } from '../actions'
 // The reducer defines our state tree and dictates how an action creates the next state of the app.
 
 const initialState = {
@@ -15,15 +15,9 @@ const initialState = {
 /*
  * HANDLE UI ACTIONS
 */
-function mode(state = AppModes.STORY, action) {
-  switch (action.type) {
-    case SWITCH_MODE:
-      if(state.mode===STORY){
-        return state.mode=
-      }
-    default:
-      return state
-  }
+
+export const mode = function(state=initialState.mode, action) {
+  return state
 }
 
 /*
