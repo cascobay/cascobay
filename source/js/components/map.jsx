@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 // import L from 'leaflet' HACK: fixed icon bug by using CartoDB global library
-import $ from 'axios'
 
 import config from './mapConfig';
 
@@ -37,7 +36,8 @@ const Map = React.createClass({
         .then(
           function(response) {
             const geojson = response.data
-            console.log(geojson)
+            console.log('response: ', response)
+            console.log('response.data: ', geojson)
             this.setState({
               dataLayer: geojson
             })

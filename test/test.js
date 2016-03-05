@@ -17,11 +17,13 @@ describe('Switch Mode', () => {
   })
 })
 
+
+
 // Reducers
 describe('mode reducer', () => {
   it('should return the initial mode state', () => {
     expect(
-      mode(undefined, {})
+      mode(undefined, {type: SWITCH_MODE})
     ).toEqual(AppModes.STORY)
   })
 })
@@ -30,7 +32,7 @@ describe('mode reducer', () => {
 describe('mode reducer', () => {
   it('should return the alternate state', () => {
     expect(
-      mode(AppModes.STORY, SWITCH_MODE)
+      mode(AppModes.STORY, {type: SWITCH_MODE})
     ).toEqual(AppModes.EXPLORE)
   })
 })

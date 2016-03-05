@@ -1,30 +1,19 @@
-import { AppModes, SidebarFilters } from '../actions'
+import initialState from './initialState'
+import { mode, sidebarFilter } from './uiReducers'
+import { cartodbData, selectedFeature } from './dataReducers'
+import { slide } from './slideReducer'
+
 // The reducer defines our state tree and dictates how an action creates the next state of the app.
 
-const initialState = {
-  mode: AppModes.STORY,
-  sidebarFilter: '',
 
-  selectedFeature: [],
-  cartodbData: {}
-  // TODO: Story mode will be implemented with states
+// Root Reducer brings together all the individual reducers to form the single state tree
+// This is exported and used by createStore
+export default cascoApp = function(state=initialState, action) {
+  return {
+    mode: mode(state.mode, action),
+    sidebarFilter: sidebarFilter(state.sidebarFilter, action),
+    selectedFeature: selectedFeature(state.selectedFeature, action),
+    cartodbData: cartodbData(state.cartodbData, action),
+    slide: slide(state.slide, action)
+  }
 }
-
-// Note, there is one immutable state tree.  Each reducer will control a specific part of the state tree.  The cascoApp is the rootReducer, meaning it composes the state tree out of the individual reducers
-
-/*
- * HANDLE UI ACTIONS
-*/
-
-export const mode = function(state=initialState.mode, action) {
-  return state
-}
-
-/*
- * HANDLE DATA ACTIONS
-*/
-
-export const cascoApp = function(state=initialState, action) {
-  return state
-}
-export default cascoApp
