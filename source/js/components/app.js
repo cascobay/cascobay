@@ -9,7 +9,7 @@ import Sidebar from 'components/sidebar';
 import Map from 'components/map';
 
 // App component
-export const App = React.createClass({
+const App = React.createClass({
   render () {
     return (
       <div className='layout-App cf'>
@@ -20,3 +20,5 @@ export const App = React.createClass({
     );
   }
 });
+
+export default App

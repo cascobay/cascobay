@@ -1,6 +1,7 @@
+import { STORY_MODE } from 'constants'
 //TODO: completely define the initial state
-export default initialState = {
-  mode: AppModes.STORY,
+export default {
+  mode: STORY_MODE,
   sidebarFilter: '',
 
   selectedFeature: [],

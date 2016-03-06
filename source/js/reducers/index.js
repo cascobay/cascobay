@@ -1,6 +1,6 @@
 import initialState from './initialState'
 import { mode, sidebarFilter } from './uiReducers'
-import { cartodbData, selectedFeature } from './dataReducers'
+import { cartodbData, selectedFeature } from './dataReducer'
 import { slide } from './slideReducer'
 
 // The reducer defines our state tree and dictates how an action creates the next state of the app.
@@ -8,7 +8,7 @@ import { slide } from './slideReducer'
 
 // Root Reducer brings together all the individual reducers to form the single state tree
 // This is exported and used by createStore
-export default cascoApp = function(state=initialState, action) {
+const cascoApp = function(state=initialState, action) {
   return {
     mode: mode(state.mode, action),
     sidebarFilter: sidebarFilter(state.sidebarFilter, action),
@@ -17,3 +17,5 @@ export default cascoApp = function(state=initialState, action) {
     slide: slide(state.slide, action)
   }
 }
+
+export default cascoApp

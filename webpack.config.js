@@ -14,6 +14,7 @@ module.exports = {
     colors: true,
     progress: true
   },
+  devtool: 'eval',
   module: {
     //when webpack bundles modules together, it will lint first, then translate to es2015
     preLoaders: [
@@ -58,7 +59,8 @@ module.exports = {
       containers: 'source/js/containers',
       actions: 'source/js/actions',
       reducers: 'source/js/reducers',
-      store: 'source/js/store'
+      store: 'source/js/store',
+      constants: 'source/js/constants'
     },
     //webpack will assume modules without a suffix are these types
     extensions: ['', '.js', '.jsx']
