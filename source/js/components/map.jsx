@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-// import L from 'leaflet' HACK: fixed icon bug by using CartoDB global library
+import ReactDOM from 'react-dom'
+import L from 'leaflet'
 
 import config from './mapConfig';
 
@@ -14,15 +14,12 @@ const Map = React.createClass({
 
   componentDidMount () {
       //runs after map is added to the DOM
-      console.log('Leaflet mounted on : ')
-      console.log(ReactDOM.findDOMNode(this))
-
       const map_node = ReactDOM.findDOMNode(this)
-
       const map_object = L.map(map_node, config.leaflet)
 
-
-      console.log(this.state)
+      console.log('Leaflet Instance mounted on: ', ReactDOM.findDOMNode(this))
+      console.log('state at beginning of componentDidMount: ', this.state)
+      console.log('props: ', this.props)
 
       // Add Baselayer to Component State
       this.state.tileLayer = config.grayscale
@@ -31,55 +28,11 @@ const Map = React.createClass({
       // instantiate our geojson layer, will add data to layer in api request callback (data needs to be present first)
       let waterQualityLayer = L.geoJson().addTo(map_object);
 
-      const query = 'SELECT * FROM ' + config.cartodb.table
-      $.get(config.cartodb.endpoint(config.cartodb.user, query))
-        .then(
-          function(response) {
-            const geojson = response.data
-            console.log('response: ', response)
-            console.log('response.data: ', geojson)
-            this.setState({
-              dataLayer: geojson
-            })
-
-            // add loaded Cartodb data to our leaflet geojson layer
-            waterQualityLayer.addData(geojson);
-
-            console.log(map_object)
-
-          }.bind(this)
-        )
-
-      // execute component method defined below
-      // this.getCdb();
 
       // Did dataLayer get added to state? Nope.
-      console.log(this.state)
+      console.log('State at end of componentDidMount: ', this.state)
   },
 
-  // TODO: hook this into a redux action, store data in the Redux Store
-    //This will let us perform one API Request on load, then refer to the Store for all other actions
-  getCdb() {
-    const query = 'SELECT * FROM ' + config.cartodb.table
-
-    $.get(config.cartodb.endpoint(config.cartodb.user, query))
-      .then(
-        function(res){
-          const geojson = res.data
-          console.log(geojson)
-          this.setState({
-            dataLayer: geojson
-          })
-          console.log(this.state)
-        }
-      )
-  },
-
-  //   //set state to include tile layer
-  //   this.state.tileLayer = L.tileLayer(config.mapboxUrl, config.grayscale)
-  //   .addTo(map_object)
-  //   // cdbLayer(map_object);
-  // },
 
   render () {
     return (
@@ -88,4 +41,9 @@ const Map = React.createClass({
   }
 })
 
+Map.propTypes = {
+  selectFeature: PropTypes.func.isRequired,
+  cartodbData: PropTypes.object,
+  selectedFeature: PropTypes.integer
+}
 export default Map
