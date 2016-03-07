@@ -5,8 +5,8 @@ import style from 'styles/main.scss';
 
 // Import react components
 import Header from 'components/header';
-import Sidebar from 'components/sidebar';
-import Map from 'components/map';
+import SidebarContainer from 'containers/sidebarContainer';
+import MapContainer from 'containers/mapContainer';
 
 // App component
 const App = React.createClass({
@@ -14,8 +14,8 @@ const App = React.createClass({
     return (
       <div className='layout-App cf'>
         <Header className='layout-header' />
-        <Map className='layout-map'/>
-        <Sidebar className='layout-sidebar' />
+        <MapContainer />
+        <SidebarContainer />
       </div>
     );
   }
