@@ -1,5 +1,17 @@
 import fetch from 'isomorphic-fetch'
-import * from '../constants'
+import {
+  REQUEST_DATA,
+  RECEIVE_DATA,
+  SELECT_FEATURE,
+  VIEW_STORY,
+  VIEW_EXPLORE,
+  NEXT_SLIDE,
+  PREVIOUS_SLIDE,
+  INTERPRETATION_FILTER,
+  DATA_FILTER,
+  STORY_MODE,
+  EXPLORE_MODE
+} from '../constants'
 
 
 // Action Creators
@@ -9,9 +21,11 @@ export function requestData(query) {
   query
 }
 export function receiveData(query, json) {
-  type: RECEIVE_DATA,
-  query,
-  features: json.data.features.map(feature => feature.properties)
+  return {
+    type: RECEIVE_DATA,
+    query,
+    features: json.data.features.map(feature => feature.properties)
+  }
 }
 
 // 'THUNK'- async action (action creator that returns a function)
