@@ -27,7 +27,9 @@ export function cartodbData(state = {
 export function selectedFeature(state = [], action) {
   switch (action.type) {
     case SELECT_FEATURE:
-      return action.feature
+      return Object.assign({}, state, {
+        selectedFeature: action.feature
+      })
     default:
       return state
   }

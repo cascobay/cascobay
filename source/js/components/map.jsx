@@ -33,7 +33,7 @@ const Map = React.createClass({
 
       // add the data to the waterquality layer.
       // QUESTION: will geojson be available as props by the time this component mounts?  if yes, just pass {this.props.geojson}.  if no, then we would pass the getCartodbData(username, query) action here
-      // waterQualityLayer.addData(this.props.getCartodbData('bfriedly', 'SELECT * FROM table_2005_2012_data_sheet1'));
+      // waterQualityLayer.addData(this.props.cartodbData.geojson);
 
   },
 

@@ -19,13 +19,14 @@ import {
 // Action Creators
 
 export function requestData(query) {
-  type: REQUEST_DATA,
-  query
+  return {
+    type: REQUEST_DATA,
+    query
+  }
 }
 
 // sync action creator that is dispached by async thunk getCartodbData
 export function receiveData(username, query, geojson) {
-  debugger;
   return {
     type: RECEIVE_DATA,
     username,
@@ -37,8 +38,14 @@ export function receiveData(username, query, geojson) {
 export function getCartodbData(username, query) {
   return function(dispatch) {
     console.log('getting cartodb data')
-    // debugger;
-    fetch('https://bfriedly.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM table_2005_2012_data_sheet1')
+
+    // changes the state to isFetching: true until api call returns our data
+    dispatch(requestData(query))
+
+    fetch(
+      'https://' +
+      username + '.cartodb.com/api/v2/sql?format=GeoJSON&q=' +
+      query)
       .then(function(response){return response.json()})
       .then(function(geojson){
         dispatch(receiveData(username, query, geojson))
