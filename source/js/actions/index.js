@@ -1,4 +1,6 @@
+require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch'
+
 import {
   REQUEST_DATA,
   RECEIVE_DATA,
@@ -20,27 +22,42 @@ export function requestData(query) {
   type: REQUEST_DATA,
   query
 }
-export function receiveData(query, json) {
+
+// sync action creator that is dispached by async thunk getCartodbData
+export function receiveData(username, query, geojson) {
+  debugger;
   return {
     type: RECEIVE_DATA,
+    username,
     query,
-    features: json.data.features.map(feature => feature.properties)
+    geojson
   }
 }
 
-// 'THUNK'- async action (action creator that returns a function)
 export function getCartodbData(username, query) {
-    return function(dispatch) {
-      // dispatch action to update let state know of pending network request
-      dispatch(requestData(query))
-      return axios.get('https://${ username }.cartodb.com/api/v2/sql?format=GeoJSON&q=${ query }')
-
-      then(response => response.json())
-      then(json =>
-        dispatch(receiveData(query, json))
-      )
-    }
+  return function(dispatch) {
+    console.log('getting cartodb data')
+    // debugger;
+    fetch('https://bfriedly.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM table_2005_2012_data_sheet1')
+      .then(function(response){return response.json()})
+      .then(function(geojson){
+        dispatch(receiveData(username, query, geojson))
+      })
+  }
 }
+// 'THUNK'- async action (action creator that returns a function)
+// export function getCartodbData(username, query) {
+//     return dispatch => {
+//       console.log('Getting CartoDB Data')
+//       // dispatch action to update let state know of pending network request
+//       // dispatch(requestData(query))
+//        fetch('https://bfriedly.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM table_2005_2012_data_sheet1')
+//         .then(response => response.json())
+//         .then(json =>
+//           dispatch(receiveData(query, json))
+//         )
+//     }
+// }
 
 export function selectFeature(feature) {
   type: SELECT_FEATURE,

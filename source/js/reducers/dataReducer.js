@@ -1,4 +1,3 @@
-import initialState from './initialState'
 import {
   REQUEST_DATA, RECEIVE_DATA, SELECT_FEATURE
 } from 'constants'
@@ -7,7 +6,8 @@ import {
 
 export function cartodbData(state = {
   isFetching: false,
-  features: []
+  selectedFeature: [],
+  geojson: {}
 }, action) {
   switch (action.type) {
     case REQUEST_DATA:
@@ -17,7 +17,7 @@ export function cartodbData(state = {
     case RECEIVE_DATA:
       return Object.assign({}, state, {
         isFetching: false,
-        features: action.features
+        geojson: action.geojson
       })
     default:
       return state

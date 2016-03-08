@@ -7,6 +7,7 @@ import configureStore from 'store'
 import App from 'components/app'
 
 const store = configureStore()
+console.log('Redux Store: ', store.getState())
 
 render(
   <Provider store={store}>

@@ -1,7 +1,7 @@
-import initialState from './initialState'
 
 // Handle the story-mode slides
 
-export function slide(state=initialState.slide, action) {
-
+export function slide(state=0, action) {
+  
+  return state
 }

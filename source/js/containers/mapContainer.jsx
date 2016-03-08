@@ -1,6 +1,5 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { selectFeature } from 'actions'
+import { selectFeature, getCartodbData } from 'actions'
 import Map from 'components/map'
 
 const mapStateToProps = (state) => {
@@ -13,9 +12,14 @@ const mapStateToProps = (state) => {
 // Allows us to dispatch actions as component props
   //Like this.onFeatureClick(feature)
 const mapDispatchToProps = (dispatch)=> {
-  // bind action creator to dispatch because this is passed to a react component that is unaware of redux
+  // these dispatch methods become component props that happen to be functions
   return {
-    selectFeature: bindActionCreators({ selectFeature }, dispatch)
+    getCartodbData: (username, query) => {
+      dispatch(getCartodbData(username, query))
+    },
+    selectFeature: (feature) => {
+      dispatch(selectFeature(feature))
+    }
   }
 }
 
