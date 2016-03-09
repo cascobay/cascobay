@@ -44,12 +44,12 @@ export function getCartodbData(username, query) {
 
     fetch(
       'https://' +
-      username + '.cartodb.com/api/v2/sql?format=GeoJSON&q=' +
-      query)
-      .then(function(response){return response.json()})
-      .then(function(geojson){
-        dispatch(receiveData(username, query, geojson))
-      })
+      username +
+      '.cartodb.com/api/v2/sql?format=GeoJSON&q=' +
+      query
+    )
+      .then(response => response.json())
+      .then(geojson => dispatch(receiveData(username, query, geojson)))
   }
 }
 // 'THUNK'- async action (action creator that returns a function)

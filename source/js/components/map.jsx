@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom'
 import L from 'leaflet'
-import fetch from 'isomorphic-fetch'
 
 import config from './mapConfig';
 
 const Map = React.createClass({
   getInitialState () {
       return {
-        tileLayer: null,
-        dataLayer: null
+        tileLayer: null
       }
   },
 
