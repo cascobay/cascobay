@@ -37,7 +37,7 @@ export function receiveData(username, query, geojson) {
 
 export function getCartodbData(username, query) {
   return function(dispatch) {
-    console.log('getting cartodb data')
+    console.log('Getting CartoDB data... ...')
 
     // changes the state to isFetching: true until api call returns our data
     dispatch(requestData(query))
@@ -52,20 +52,6 @@ export function getCartodbData(username, query) {
       .then(geojson => dispatch(receiveData(username, query, geojson)))
   }
 }
-// 'THUNK'- async action (action creator that returns a function)
-// export function getCartodbData(username, query) {
-//     return dispatch => {
-//       console.log('Getting CartoDB Data')
-//       // dispatch action to update let state know of pending network request
-//       // dispatch(requestData(query))
-//        fetch('https://bfriedly.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * FROM table_2005_2012_data_sheet1')
-//         .then(response => response.json())
-//         .then(json =>
-//           dispatch(receiveData(query, json))
-//         )
-//     }
-// }
-
 export function selectFeature(feature) {
   return {
     type: SELECT_FEATURE,
@@ -84,22 +70,3 @@ export function nextSlide() {
 export function previousSlide() {
   type: PREVIOUS_SLIDE
 }
-
-
-// const query = 'SELECT * FROM ' + config.cartodb.table
-// $.get(config.cartodb.endpoint(config.cartodb.user, query))
-//   .then(
-//     function(response) {
-//       const geojson = response.data
-//       console.log(geojson)
-//       this.setState({
-//         dataLayer: geojson
-//       })
-//
-//       // add loaded Cartodb data to our leaflet geojson layer
-//       waterQualityLayer.addData(geojson);
-//
-//       console.log(map_object)
-//
-//     }.bind(this)
-//   )
