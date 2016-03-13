@@ -4,13 +4,13 @@ import Sidebar from 'components/sidebar'
 
 const mapStateToProps = (state) => {
   return {
-
+    currentFeature: state.rootSelected.Feature
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+
   }
 }
 
