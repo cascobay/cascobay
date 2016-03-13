@@ -67,8 +67,10 @@ export function getCartodbData(username, query) {
 // }
 
 export function selectFeature(feature) {
-  type: SELECT_FEATURE,
-  feature
+  return {
+    type: SELECT_FEATURE,
+    feature
+  }
 }
 export function viewStory() {
   type: VIEW_STORY
