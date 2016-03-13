@@ -25,30 +25,20 @@ const Map = React.createClass({
 
     //redux's connect() method allows us to call action creators as component props
     //this is equivalent to calling  dispatch(getCartodbData())
-    this.props.getCartodbData('bfriedly', 'SELECT * FROM table_2005_2012_data_sheet1')
+    this.props.getCartodbData('bfriedly', 'SELECT * FROM cascobay_2005_2012_waterquality')
   },
   componentWillReceiveProps(nextProps) {
-    console.log('next props: ', nextProps)
+    console.log('MAP NEXT PROPS: ', nextProps)
     //if the new props are a valid geojson object, add them to our leaflet map
     if (nextProps.cartodbData.geojson !== this.props.cartodbData.geojson && GJV.valid(nextProps.cartodbData.geojson)) {
       this.addGeojson(nextProps.cartodbData.geojson, this.props)
     }
   },
   addGeojson(geojson, props) {
-    const geojsonStyle = {
-      radius: 8,
-      fillColor: '#ff7800',
-      color: '#000',
-      weight: 1,
-      opacity: 1,
-      filOpacity: 0.8
-    }
-    console.log('this.props.selectFeature: ', this.props.selectFeature)
-
     function onClick(event){
       const layer = event.target
 
-      console.log(props)
+      console.log('ONCLICK PROPS', props)
       props.selectFeature(layer.feature.properties)
     }
 
@@ -63,13 +53,23 @@ const Map = React.createClass({
           })
         },
         pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng, geojsonStyle)
+          return L.circleMarker(latlng)
+        },
+        style: function(feature) {
+          if(feature.properties.index<75){
+            return {fillColor: "#fc8d59", fillOpacity: 1}
+          } else if (feature.properties.index<85) {
+            return {fillColor: "#ffffbf", fillOpacity: 1}
+          }
+          else {
+            return {fillColor: "#99d594", fillOpacity: 1}
+          }
         }
       }).addTo(this.state.map)
     }
-
     else {
-      console.log('cartodbData.geojson is an Invalid geojson: ', geojson)}
+      console.log('cartodbData.geojson is an Invalid geojson: ', geojson)
+    }
   },
   render() {
     return (
