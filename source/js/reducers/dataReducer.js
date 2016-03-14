@@ -28,7 +28,7 @@ export function selectedFeature(state = {}, action) {
   switch (action.type) {
     case SELECT_FEATURE:
       return Object.assign({}, state, {
-        selectedFeature: action.feature
+        Feature: action.feature
       })
     default:
       return state
