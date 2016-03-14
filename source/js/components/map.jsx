@@ -18,11 +18,17 @@ const Map = React.createClass({
     // find out what dom element this component is mounted on, and instantiate our leaflet map onto that node
     const map_node = ReactDOM.findDOMNode(this)
     this.state.map = L.map(map_node, config.leaflet)
+    const baselayers = {
+      Canvas: config.grayscale,
+      Satellite: config.satellite
+  };
 
     // Add Baselayer to Component State
     this.state.tileLayer = config.grayscale
       .addTo(this.state.map)
 
+    // add layer controller for basemaps
+    L.control.layers(baselayers).addTo(this.state.map);
     //redux's connect() method allows us to call action creators as component props
     //this is equivalent to calling  dispatch(getCartodbData())
     this.props.getCartodbData('bfriedly', 'SELECT * FROM cascobay_2005_2012_waterquality')
