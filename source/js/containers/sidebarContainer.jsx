@@ -4,7 +4,7 @@ import Sidebar from 'components/sidebar'
 
 const mapStateToProps = (state) => {
   return {
-    currentFeature: state.rootSelected.Feature
+    currentFeature: state.selectedFeature.Feature
   }
 }
 
