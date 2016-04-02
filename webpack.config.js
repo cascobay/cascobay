@@ -60,7 +60,8 @@ module.exports = {
       actions: 'source/js/actions',
       reducers: 'source/js/reducers',
       store: 'source/js/store',
-      constants: 'source/js/constants'
+      constants: 'source/js/constants',
+      assets: 'public/assets'
     },
     //webpack will assume modules without a suffix are these types
     extensions: ['', '.js', '.jsx']
