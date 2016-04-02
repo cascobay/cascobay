@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react'
 
+import SidebarHeader from './SidebarHeader'
+import SidebarBody from './SidebarBody'
+import SidebarFooter from './SidebarFooter'
+
 const Sidebar = React.createClass({
   getDefaultProps: function() {
     return {
@@ -12,44 +16,24 @@ const Sidebar = React.createClass({
   componentWillReceiveProps(nextProps) {
     console.log('SIDEBAR RECEIVED PROPS: ', nextProps.currentFeature.index)
   },
+
+
   render () {
-    console.log('SIDEBAR RENDERED: ', this.props.selectedFeature)
+    console.log('SIDEBAR RENDERED: ', this.props.currentFeature)
+
+    // const footerStyle = {
+    //   height: '300px',
+    //   backgroundColor: 'blue'
+    // }
+
     return (
       <section className="sidebar layout-sidebar">
-        <div className="sidebar-header">
-          <div className="layout-sidebar-title">
-            <h1 className="sidebar-name" id="sitename">{this.props.currentFeature.sitename}</h1>
-            <h3 className="sidebar-location" id="sitelocation"> {this.props.currentFeature.sitelocation}</h3>
-          </div>
-          {/*TODO: Dynamic Graphic, top right corner of .site-content, next to site-name */}
-          <div id="index-graphic"></div>
-          <img className="sidebar-picture" src={this.props.currentFeature.photo_url} alt="Placeholder">
-          </img>
-        </div>
-        <div className="sidebar-body">
-          <p className="sidebar-description" id="sitedescription">{this.props.currentFeature.indexinterpretation}</p>
-          <div className="sidebar-data-window">
-            <nav className="sidebar-data-window-navbar">
-              <div className="data-window-button"><a href="#">Interpretation</a></div>
-              <div className="data-window-button"><a href="#">pH</a></div>
-              <div className="data-window-button"><a href="#">DO</a></div>
-            </nav>
-          </div>
-        </div>
-        <div className="sidebar-footer">
-          <div className="sidebar-button">Get Involved!</div>
-          <div className="sidebar-button">Donate</div>
-        </div>
+          <SidebarHeader {...this.props}  />
+          <SidebarBody {...this.props} />
+          <SidebarFooter {...this.props}  />
       </section>
     )
   }
-  // name (props) {
-  //   if (props) {
-  //     console.log('name method rendered, with props: ', props);
-  //     return props
-  //   }
-  //   else {console.log('name method props are falsy: ', props); return 'No props yet!'}
-  // }
 })
 
 export default Sidebar
