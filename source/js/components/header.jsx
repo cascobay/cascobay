@@ -9,7 +9,7 @@ const Header = React.createClass({
               <img id ='logo' src='http://www.cascobay.org/wp-content/uploads/2014/05/FOCB-logo_FINAL-300x78.png' alt='Friends of Casco Bay'></img>
             </a>
           </div>
-          <h1 className='title'>A Changing Casco Bay</h1>
+          <h1 className='title'>Casco Bay Health Index</h1>
         </header>
     )
   }
