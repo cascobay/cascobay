@@ -1,0 +1,51 @@
+@import "../../layout/grid.scss";
+@import "../../colors.scss";
+@import "./data-window.scss";
+
+
+.sidebar {
+  // background: rgba(255,255,255, 0.9);
+  background: linear-gradient(to left, rgba(255,255,255,0.7), rgba(255,255,255,0.8) 20%);
+  box-shadow: 0px 2px 20px black;
+  text-align: center;
+  justify-content: flex-start;
+  display: flex;
+  flex-flow: column;
+}
+.sidebar-header {
+  z-index: 5;
+  flex: 1 1 10%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+}
+.sidebar-body {
+  margin: 1% 0;
+  flex: 3 1 75%;
+  padding: 0.5em;
+  overflow: scroll;
+}
+.sidebar-footer {
+  flex: 1 1 5%;
+}
+.sidebar-name {
+  font-size: 1.6em;
+  font-weight: bolder;
+}
+.sidebar-location {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+.sidebar-figure {
+  position: relative;
+}
+.sidebar-figure-caption {
+  font-size: 0.9em;
+  top: 5px;
+  padding: 10px;
+  position: absolute;
+  background: rgba(0,0,0,.56);
+  color: white;
+  line-height: 1.5;
+}

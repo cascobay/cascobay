@@ -1,0 +1,54 @@
+@import "../../colors.scss";
+
+.navbar {
+  color: $accent-yellow;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: rgba(0,0,0,.3);
+}
+
+.interpretation-view {
+  padding: 0.5em 1em;
+}
+
+.viewButton {
+  font-size: 1.3rem;
+  flex: 1 1 auto;
+  padding: 3px 5px;
+}
+.activeViewButton {
+  font-size: 1.3rem;
+  flex: 1 1 auto;
+  padding: 3px 5px;
+  font-weight: bolder;
+  background: rgba($main-blue ,.6);
+}
+
+.data-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-content: stretch;
+  padding: 0.4em;
+}
+.data-field {
+  flex: 1 1 60%;
+}
+.data-value {
+  flex: 1 1 40%;
+}
+.information-icon {
+  height: 3em;
+  width: 3em;
+}
+.value-poor {
+  background: rgba($poor-quality , 0.8);
+}
+.value-fair {
+  background: rgba($fair-quality , 0.8);
+}
+.value-good {
+  background: rgba($good-quality , 0.8);
+}

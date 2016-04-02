@@ -6,28 +6,33 @@
 .layout-App {
   height: 100%;
   width: 100%;
-  background-color: white;
 }
 .layout-header {
-  float: left;
+  position: absolute;
+  height: 15%;
+  top: 0;
+  left: 0;
+  z-index: 1;
   width: $col-12;
-  margin: 0 0 5px 0;
-  height: 10%;
   text-align: center;
 }
-//FIXME:  Containers are larger than viewport
 .layout-map {
-  float: right;
-  width: $col-8;
-  height: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: $col-12;
+  height: 100%;
+  width: 100%;
 }
 
 .layout-sidebar {
-  float: left;
+  position: absolute;
+  top: 15%;
+  z-index: 1;
+  height: 85%;
+  padding: 0 0.6em;
   width: $col-4;
-  height: 90%;
-  padding: 1% 0 0 0;
-  text-align: center;
 }
   // .layout-sidebar-title {
   //   float: left;

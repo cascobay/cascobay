@@ -1,9 +1,13 @@
 @import '../layout/grid.scss';
 
 .header {
+  background-color: blue;
+  background: linear-gradient(to top, rgba(255,255,255,0.7), rgba(255,255,255,0.9) 30%);
+  box-shadow: 0px 2px 20px black;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-flow: row;
+
 }
 
 .logo {
@@ -11,10 +15,8 @@
 }
 
 .title {
-  // width: $col-8;
   font-size: 3em;
-  font: old sans black;
+  font-weight: bold;
   align-self: center;
   width: $col-8;
-  border: 1px solid black;
 }

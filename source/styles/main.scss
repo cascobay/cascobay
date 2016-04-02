@@ -3,5 +3,6 @@
 @import './util/utilities.scss';
 
 /*Modules*/
-@import './modules/sidebar.scss';
 @import './modules/header.scss';
+@import './modules/sidebar/index.scss';
+@import './modules/map.scss';

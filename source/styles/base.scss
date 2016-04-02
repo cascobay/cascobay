@@ -4,6 +4,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans serif;
 }
 html, body {
   height: 100%;
@@ -11,24 +12,12 @@ html, body {
 }
 html {
   background-color: #FFF;
-  font-family: Arial, Helvetica, sans serif;
-  font-size: 14px;
 }
 
 body {
   background-color: rgba($light-color, 0.2);
 }
 
-div {border: 1px solid black};
-
 img {
   max-width: 100%;
 }
-/*Visual help for developing, delete all for production*/
-
-// h2 {
-//   border: 1px solid lighten(black, 40%);
-// }
-// h3 {
-//   border: 1px solid lighten(black, 60%);
-// }
