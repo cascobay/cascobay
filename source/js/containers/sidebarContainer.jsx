@@ -1,21 +1,27 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Sidebar from 'components/sidebar'
+import { selectView } from 'actions'
+import Sidebar from 'components/Sidebar'
 
 const mapStateToProps = (state) => {
   return {
-    currentFeature: state.selectedFeature.Feature
+    currentFeature: state.selectedFeature.Feature,
+    view: state.sidebarView
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch)=> {
+  // these dispatch methods become component props that happen to be functions
   return {
-
+    selectView: (view) => {
+      dispatch(selectView(view))
+    }
   }
 }
+
 
 const SidebarContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Sidebar)
+
 export default SidebarContainer
