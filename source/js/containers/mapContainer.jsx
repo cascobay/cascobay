@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { selectFeature, getCartodbData } from 'actions'
-import Map from 'components/map'
+import Map from 'components/Map'
 
 const mapStateToProps = (state) => {
   return {
