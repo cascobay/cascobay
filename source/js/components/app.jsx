@@ -21,4 +21,5 @@ const App = React.createClass({
   }
 });
 
+// this gets rendered in ../index.js (the redux container component for the entire app)
 export default App
