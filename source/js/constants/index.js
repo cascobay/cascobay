@@ -1,4 +1,4 @@
-
+// CONSTANTS
 // Action Types
 export const ENTER_MAP = 'ENTER_MAP'
 export const REQUEST_DATA = 'REQUEST_DATA'

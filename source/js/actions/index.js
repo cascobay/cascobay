@@ -1,4 +1,4 @@
-require('es6-promise').polyfill();
+// ACTIONS
 import fetch from 'isomorphic-fetch'
 
 import {

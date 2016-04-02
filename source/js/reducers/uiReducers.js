@@ -1,3 +1,4 @@
+// UI REDUCERS
 import {
   ENTER_MAP,
   LANDING_PAGE,
