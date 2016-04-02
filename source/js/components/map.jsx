@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom'
 import L from 'leaflet'
 import GJV from 'geojson-validation'
 
-import config from './mapConfig';
+import config from 'constants/mapConfig';
 
 const Map = React.createClass({
   getInitialState() {
       return {
         map: {},
         tileLayer: null,
-        waterQualityLayer: null
+        waterQualityLayer: {}
       }
   },
   componentDidMount() {
@@ -21,14 +21,17 @@ const Map = React.createClass({
     const baselayers = {
       Canvas: config.grayscale,
       Satellite: config.satellite
-  };
+    };
 
     // Add Baselayer to Component State
     this.state.tileLayer = config.grayscale
       .addTo(this.state.map)
 
+    // add custom zoom control manually to specify its position
+    L.control.zoom({position:'topright'}).addTo(this.state.map);
     // add layer controller for basemaps
     L.control.layers(baselayers).addTo(this.state.map);
+
     //redux's connect() method allows us to call action creators as component props
     //this is equivalent to calling  dispatch(getCartodbData())
     this.props.getCartodbData('bfriedly', 'SELECT * FROM cascobay_2005_2012_waterquality')
@@ -37,32 +40,28 @@ const Map = React.createClass({
     console.log('MAP NEXT PROPS: ', nextProps)
     //if the new props are a valid geojson object, add them to our leaflet map
     if (nextProps.cartodbData.geojson !== this.props.cartodbData.geojson && GJV.valid(nextProps.cartodbData.geojson)) {
-      this.addGeojson(nextProps.cartodbData.geojson, this.props)
+      this._addGeojson(nextProps.cartodbData.geojson, this.props)
     }
   },
-  addGeojson(geojson, props) {
-    function onClick(event){
-      const layer = event.target
-
-      console.log('ONCLICK PROPS', props)
-      props.selectFeature(layer.feature.properties)
-    }
-
+  _addGeojson(geojson, props) {
     //if geojson is valid, add to map object
+    var geojson
+
     if(GJV.valid(geojson)){
       console.log('cartodbData.geojson is a Valid geojson: ', geojson)
-
-      this.state.waterQualityLayer = L.geoJson(geojson, {
+      geojson = L.geoJson(geojson, {
         onEachFeature: function(feature, layer) {
           layer.on({
-            click: onClick
+            click: onClick,
+            mouseover: highlightFeature,
+            mouseout: resetHighlight
           })
         },
         pointToLayer: function(feature, latlng) {
           return L.circleMarker(latlng)
         },
         style: function(feature) {
-          if(feature.properties.index<75){
+          if(feature.properties.index<70){
             return {fillColor: "#fc8d59", fillOpacity: 1}
           } else if (feature.properties.index<85) {
             return {fillColor: "#ffffbf", fillOpacity: 1}
@@ -72,11 +71,39 @@ const Map = React.createClass({
           }
         }
       }).addTo(this.state.map)
+
+      //define our event listeners
+      function onClick(event){
+        const layer = event.target
+
+        console.log('ONCLICK PROPS', props)
+        props.selectFeature(layer.feature.properties)
+      }
+
+      function highlightFeature(event) {
+        const layer = event.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera) {
+            layer.bringToFront();
+        }
+      }
+      function resetHighlight(event) {
+        const layer = event.target
+        geojson.resetStyle(layer)
+      }
     }
     else {
       console.log('cartodbData.geojson is an Invalid geojson: ', geojson)
     }
   },
+
   render() {
     return (
       <div className='layout-map cf'></div>
