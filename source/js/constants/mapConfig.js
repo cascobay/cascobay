@@ -16,8 +16,8 @@ https://{account}.cartodb.com/api/v2/sql?q={SQL statement}
 // Module exposes a single Object
 const configs = {
   leaflet: {
-    center: [43.761921, -70.080350],
-    zoom: 9,
+    center: [43.79, -70.18],
+    zoom: 11,
     minZoom: 2,
     maxzoom: 21,
     zoomControl: false,
