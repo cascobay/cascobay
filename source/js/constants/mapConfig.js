@@ -17,11 +17,11 @@ https://{account}.cartodb.com/api/v2/sql?q={SQL statement}
 const configs = {
   leaflet: {
     center: [43.761921, -70.080350],
-    zoom: 8,
+    zoom: 9,
     minZoom: 2,
     maxzoom: 21,
+    zoomControl: false,
     layer : [grayscale]
-    //TODO: maxbounds: []
   },
   cartodb: {
     endpoint: function(user, query) {
