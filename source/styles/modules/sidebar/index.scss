@@ -28,7 +28,17 @@
 }
 .sidebar-footer {
   flex: 1 1 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
+.sidebar-footer-link {
+  padding: 1em;
+  border: 1px solid red;
+  align-self: center;
+}
+
 .sidebar-name {
   font-size: 1.6em;
   font-weight: bolder;
