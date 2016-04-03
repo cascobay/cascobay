@@ -7,9 +7,11 @@ This is what you would need set up a development environment and deploy changes 
   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
 
 #### Project Organization  
-This app is being served by Github using ["Github Pages"](https://pages.github.com/).  See Github's documentation on how "Project Pages" work, and how to configure a Github Pages project (for example, changing the URL of the site from the default http://{USERNAME}.github.io/{REPOSITORY_NAME} to a custom domain name).
+This app is being served by Github using ["Github Pages"](https://pages.github.com/).  See Github's documentation on how "Project Pages" work, and how to configure a Github Pages project (for example, changing the URL of the site from the default http://{USERNAME}.github.io/{REPOSITORY_NAME} to a custom domain name).  
+
 There are two branches:  
-1.  **Master**  : Where the code lives that drives the app.  The *source* directory in this branch contains all the code that you would use to make changes to the app (style or javascript).  This branch also contains the tools and configuration for the development environment, which will neatly pack up all the code in the source directory for our gh-pages branch.
+1.  **Master**  : Where the code lives that drives the app.  The *source* directory in this branch contains all the code that you would use to make changes to the app (style or javascript).  This branch also contains the tools and configuration for the development environment, which will neatly pack up all the code in the source directory for our gh-pages branch.  
+
 2.  **gh-pages**:  The code in this branch is just the *public* directory in the Master branch.  Github will automatically look at the files in this branch and serve the index.html file.  Don't ever edit this branch directly.  Make any changes in the Master branch, and run the `npm run deploy` script from Master in order to build and update the gh-pages branch.
 
 #### Editing the Data
