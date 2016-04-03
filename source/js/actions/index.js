@@ -15,10 +15,10 @@ import {
 
 // Action Creators
 
-export function enterMap(mode) {
+export function enterMap() {
   return {
     type: ENTER_MAP,
-    mode
+    mode: 'EXPLORE_MAP'
   }
 }
 
@@ -61,6 +61,16 @@ export function selectFeature(feature) {
   return {
     type: SELECT_FEATURE,
     feature
+  }
+}
+
+export function clickFeature(feature) {
+  return function(dispatch) {
+    console.log('Entering Map Mode')
+    dispatch(enterMap())
+
+    console.log('Selecting Feature...')
+    dispatch(selectFeature(feature))
   }
 }
 

@@ -6,16 +6,26 @@ import style from 'styles/main.scss';
 // Import react components
 import Header from 'components/header';
 import SidebarContainer from 'containers/sidebarContainer';
+import IntroSidebar from 'components/IntroSidebar'
 import MapContainer from 'containers/mapContainer';
 
 // App component
 const App = React.createClass({
   render () {
+    // render appropriate sidebar component depending on appState
+    let sidebar;
+    if (this.props.appState === 'LANDING_PAGE') {
+      sidebar= (<IntroSidebar />)
+    }
+    else {
+      sidebar = (<SidebarContainer />)
+    }
+
     return (
       <div className='layout-App cf'>
         <Header className='layout-header' />
         <MapContainer />
-        <SidebarContainer />
+        {sidebar}
       </div>
     );
   }

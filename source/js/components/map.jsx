@@ -77,7 +77,7 @@ const Map = React.createClass({
         const layer = event.target
 
         console.log('ONCLICK PROPS', props)
-        props.selectFeature(layer.feature.properties)
+        props.clickFeature(layer.feature.properties)
       }
 
       function highlightFeature(event) {
@@ -110,13 +110,4 @@ const Map = React.createClass({
     )
   }
 })
-
-// Map.propTypes = {
-//   //redux state --> component props
-//   // cartodbData: PropTypes.object,
-//   // selectedFeature: PropTypes.integer,
-//   // // redux action creators --> component props
-//   // selectFeature: PropTypes.func.isRequired,
-//   // getCartodbData: PropTypes.func.isRequired
-// }
 export default Map

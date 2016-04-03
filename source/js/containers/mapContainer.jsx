@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectFeature, getCartodbData } from 'actions'
+import { clickFeature, getCartodbData } from 'actions'
 import Map from 'components/Map'
 
 const mapStateToProps = (state) => {
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch)=> {
     getCartodbData: (username, query) => {
       dispatch(getCartodbData(username, query))
     },
-    selectFeature: (feature) => {
-      dispatch(selectFeature(feature))
+    clickFeature: (feature) => {
+      dispatch(clickFeature(feature))
     }
   }
 }
