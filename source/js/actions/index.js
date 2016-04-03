@@ -3,6 +3,9 @@ import fetch from 'isomorphic-fetch'
 
 import {
   ENTER_MAP,
+  EXPLORE_MAP,
+  ENTER_LANDING_PAGE,
+  LANDING_PAGE,
   REQUEST_DATA,
   RECEIVE_DATA,
   SELECT_FEATURE,
@@ -18,7 +21,14 @@ import {
 export function enterMap() {
   return {
     type: ENTER_MAP,
-    mode: 'EXPLORE_MAP'
+    mode: EXPLORE_MAP
+  }
+}
+
+export function enterLandingPage() {
+  return {
+    type: ENTER_LANDING_PAGE,
+    mode: LANDING_PAGE
   }
 }
 

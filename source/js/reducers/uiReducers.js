@@ -1,6 +1,7 @@
 // UI REDUCERS
 import {
   ENTER_MAP,
+  ENTER_LANDING_PAGE,
   LANDING_PAGE,
   SELECT_VIEW,
   INTERPRETATION_VIEW
@@ -18,6 +19,8 @@ export function sidebarView(state= INTERPRETATION_VIEW, action) {
 export function appState(state= LANDING_PAGE, action) {
   switch (action.type) {
     case ENTER_MAP:
+      return action.mode
+    case ENTER_LANDING_PAGE:
       return action.mode
     default:
       return state

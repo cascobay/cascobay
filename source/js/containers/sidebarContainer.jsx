@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectView } from 'actions'
+import { selectView, enterLandingPage } from 'actions'
 import Sidebar from 'components/Sidebar'
 
 const mapStateToProps = (state) => {
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch)=> {
   return {
     selectView: (view) => {
       dispatch(selectView(view))
+    },
+    enterLandingPage: () => {
+      dispatch(enterLandingPage())
     }
   }
 }
