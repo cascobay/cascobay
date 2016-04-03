@@ -6,16 +6,24 @@ const DataRow = React.createClass({
   render () {
 
     let content;
-    if (this.props.dataValue < this.props.dataThreshold) {
+    if (this.props.dataValue < 70) {
       content = (
-        <div className='data-row'>
+        <div className='data-row value-poor'>
           <div className='data-field'>{this.props.dataField}</div>
           <InfoIcon src='./assets/information-icon.svg' />
-          <div className='data-value below-threshold'>{this.props.dataValue}</div>
+          <div className='data-value'>{this.props.dataValue}</div>
         </div>
-      )} else {
+      )} else if (this.props.dataValue < 85) {
         content = (
-          <div className='data-row'>
+          <div className='data-row value-fair'>
+            <div className='data-field'>{this.props.dataField}</div>
+            <InfoIcon src='./assets/information-icon.svg' />
+            <div className='data-value'>{this.props.dataValue}</div>
+          </div>
+        )
+      } else if (this.props.dataValue <= 100) {
+        content = (
+          <div className='data-row value-good'>
             <div className='data-field'>{this.props.dataField}</div>
             <InfoIcon src='./assets/information-icon.svg' />
             <div className='data-value'>{this.props.dataValue}</div>
