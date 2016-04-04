@@ -1,0 +1,20 @@
+@import '../../colors.scss';
+
+.intro {
+  background-color: $main-blue;
+  padding: 1em 4em;
+  overflow: auto;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-title {
+  text-align: center;
+}
+
+.intro-paragraph {
+  font-size: 1.1em;
+  margin: 0.25em;
+}
