@@ -1,6 +1,10 @@
 {
   "name": "cascobay",
   "version": "0.0.0",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/bfreeds/cascobay.git"
+},
   "description": "Casco Bay Water Quality Web app",
   "main": "index.js",
   "scripts": {
