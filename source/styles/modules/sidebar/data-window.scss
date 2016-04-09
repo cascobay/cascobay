@@ -10,7 +10,9 @@
 }
 
 .interpretation-view {
-  padding: 0.5em 1em;
+  padding: 5% 1%;
+  text-align: justify;
+  border: 1px solid red;
 }
 
 .viewButton {
@@ -27,11 +29,16 @@
 }
 
 .data-row {
+  color: $dark-grey;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-content: stretch;
   padding: 0.4em;
+}
+.health-index {
+  font-weight: bold;
+  border: 2px solid red;
 }
 .data-field {
   flex: 1 1 60%;
@@ -44,11 +51,11 @@
   width: 3em;
 }
 .value-poor {
-  background: rgba($poor-quality , 0.8);
+  background: rgba($poor-quality, 1);
 }
 .value-fair {
-  background: rgba($fair-quality , 0.8);
+  background: rgba($fair-quality, 1);
 }
 .value-good {
-  background: rgba($good-quality , 0.8);
+  background: rgba($good-quality, 1);
 }
