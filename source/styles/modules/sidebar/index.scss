@@ -30,7 +30,6 @@
 .sidebar-footer {
   flex: 1 1 5%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
 }
 
@@ -38,6 +37,7 @@
   padding: 0 1em;
   border: 1px solid red;
   align-self: center;
+  flex: 1 1 auto;
 }
 
 .sidebar-name {
