@@ -11,7 +11,7 @@ const DataWindow = React.createClass({
     } else if (this.props.view==='DATA_VIEW'){
       content = (
         <div>
-          <DataRow dataThreshold={70} dataField='Health Index Score' dataValue={Math.round(this.props.currentFeature.index)}></DataRow>
+          <DataRow className='health-index' dataThreshold={70} dataField='Health Index Score' dataValue={Math.round(this.props.currentFeature.index)}></DataRow>
           <DataRow dataField='pH Parameter Score' dataValue={Math.round(this.props.currentFeature.ph * 100)} />
           <DataRow dataField='Dissolved Oxygen Parameter Score' dataValue={Math.round(this.props.currentFeature._do  * 100)} />
           <DataRow dataField='Water Clarity Parameter Score' dataValue={Math.round(this.props.currentFeature.waterclarity * 100)} />
