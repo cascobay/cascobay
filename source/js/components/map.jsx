@@ -6,11 +6,16 @@ import GJV from 'geojson-validation'
 import config from 'constants/mapConfig';
 
 const Map = React.createClass({
+  render() {
+    return (
+      <div className='layout-map'></div>
+    )
+  },
   getInitialState() {
       return {
         map: {},
-        tileLayer: null,
-        waterQualityLayer: {}
+        geojsonLayer: null,
+        tileLayer: null
       }
   },
   componentDidMount() {
@@ -43,71 +48,73 @@ const Map = React.createClass({
       this._addGeojson(nextProps.cartodbData.geojson, this.props)
     }
   },
-  _addGeojson(geojson, props) {
+  _addGeojson(geojson) {
     //if geojson is valid, add to map object
-    var geojson
-
     if(GJV.valid(geojson)){
       console.log('cartodbData.geojson is a Valid geojson: ', geojson)
-      geojson = L.geoJson(geojson, {
-        onEachFeature: function(feature, layer) {
-          layer.on({
-            click: onClick,
-            mouseover: highlightFeature,
-            mouseout: resetHighlight
-          })
-        },
-        pointToLayer: function(feature, latlng) {
-          return L.circleMarker(latlng)
-        },
-        style: function(feature) {
-          if(feature.properties.index<70){
-            return {fillColor: "#fc8d59", fillOpacity: 1}
-          } else if (feature.properties.index<85) {
-            return {fillColor: "#ffffbf", fillOpacity: 1}
-          }
-          else {
-            return {fillColor: "#99d594", fillOpacity: 1}
-          }
-        }
+      //value of this from within L.geoJson
+      console.log('_addGeojson value of this: ', this)
+
+      this.state.geojsonLayer = L.geoJson(geojson, {
+        onEachFeature: this._onEachFeature,
+        pointToLayer: this._pointToLayer,
+        style: this._geojsonStyle
       }).addTo(this.state.map)
-
-      //define our event listeners
-      function onClick(event){
-        const layer = event.target
-
-        console.log('ONCLICK PROPS', props)
-        props.clickFeature(layer.feature.properties)
-      }
-
-      function highlightFeature(event) {
-        const layer = event.target;
-
-        layer.setStyle({
-            weight: 5,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7
-        });
-
-        if (!L.Browser.ie && !L.Browser.opera) {
-            layer.bringToFront();
-        }
-      }
-      function resetHighlight(event) {
-        const layer = event.target
-        geojson.resetStyle(layer)
-      }
     }
     else {
       console.log('cartodbData.geojson is an Invalid geojson: ', geojson)
     }
   },
+  _onEachFeature(feature, layer) {
+    layer.on({
+      click: this._onClick,
+      mouseover: this._highlightFeature,
+      mouseout: this._resetHighlight
+    })
+  },
+  _pointToLayer(feature, latlng){
+    return L.circleMarker(latlng).on('click', function(){})
+  },
+  _geojsonStyle(feature) {
+    if(feature.properties.index<70){
+      return {fillColor: "#fc8d59", fillOpacity: 1}
+    } else if (feature.properties.index<85) {
+      return {fillColor: "#ffffbf", fillOpacity: 1}
+    }
+    else {
+      return {fillColor: "#99d594", fillOpacity: 1}
+    }
+  },
+  _onClick(event) {
+    const layer = event.target
+    // zoom to clicked feature
+    this._zoomToFeature(layer)
 
-  render() {
-    return (
-      <div className='layout-map cf'></div>
-    )
+    // execute redux action to put the clicked feature's properties into the global app state
+    this.props.clickFeature(layer.feature.properties)
+
+  },
+  _highlightFeature(event){
+    const layer = event.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
+  },
+  _resetHighlight(event){
+    const layer = event.target
+    this.state.geojsonLayer.resetStyle(layer)
+  },
+  _zoomToFeature: function(target) {
+    const center = target._latlng
+    this.state.map.setView(center, 15);
   }
 })
 export default Map
