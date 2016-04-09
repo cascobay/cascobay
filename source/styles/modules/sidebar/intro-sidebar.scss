@@ -2,7 +2,7 @@
 
 .intro {
   background-color: $main-blue;
-  padding: 1em 4em;
+  padding: 0 2% 3% 2%;
   overflow: auto;
   text-align: justify;
   display: flex;
@@ -12,9 +12,12 @@
 
 .intro-title {
   text-align: center;
+  padding: 4% 0%;
+  margin: 0 0 1em 0;
 }
 
 .intro-paragraph {
   font-size: 1.1em;
-  margin: 0.25em;
+  padding: 0 2% 0 2%;
+  margin: 2% 0 2% 0;
 }
