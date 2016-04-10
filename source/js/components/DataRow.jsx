@@ -1,39 +1,27 @@
 import React, { PropTypes } from 'react'
+import classNames from 'classnames'
 
 import InfoIcon from './InfoIcon'
 
 const DataRow = React.createClass({
   render () {
+    // conditionally set row className based on conditional props
+    const value = this.props.dataValue
+    let rowClass = classNames({
+      'data-row': true,
+      'health-index': this.props.rowType === 'health-index',
+      'value-good': value > 85 && value <=100,
+      'value-fair':  value > 75 && value <=85,
+      'value-poor':  value > 0 && value <=75
+    })
 
-    let content;
-    if (this.props.dataValue < 70) {
-      content = (
-        <div className='data-row value-poor'>
+    return (
+      <div>
+        <div className={rowClass}>
           <div className='data-field'>{this.props.dataField}</div>
           <InfoIcon src='./assets/info-icon.svg' />
           <div className='data-value'>{this.props.dataValue}</div>
         </div>
-      )} else if (this.props.dataValue < 85) {
-        content = (
-          <div className='data-row value-fair'>
-            <div className='data-field'>{this.props.dataField}</div>
-            <InfoIcon src='./assets/info-icon.svg' />
-            <div className='data-value'>{this.props.dataValue}</div>
-          </div>
-        )
-      } else if (this.props.dataValue <= 100) {
-        content = (
-          <div className='data-row value-good'>
-            <div className='data-field'>{this.props.dataField}</div>
-            <InfoIcon src='./assets/info-icon.svg' />
-            <div className='data-value'>{this.props.dataValue}</div>
-          </div>
-        )
-      }
-
-    return (
-      <div>
-        {content}
       </div>
     )
   }

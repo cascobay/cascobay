@@ -3,6 +3,7 @@
 .intro {
   background-color: $main-blue;
   padding: 0 2% 3% 2%;
+  color: $dark-grey;
   overflow: auto;
   text-align: justify;
   display: flex;
@@ -11,13 +12,17 @@
 }
 
 .intro-title {
+  color: $dark-grey;
+  background-color: $light-grey;
   text-align: center;
   padding: 4% 0%;
   margin: 0 0 1em 0;
 }
 
 .intro-paragraph {
+  background-color: $light-grey;
+  border-radius: 10px;
   font-size: 1.1em;
-  padding: 0 2% 0 2%;
+  padding: 2px 15px;
   margin: 2% 0 2% 0;
 }

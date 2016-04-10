@@ -29,16 +29,18 @@
 }
 
 .data-row {
+  padding: 0.4em;
   color: $dark-grey;
+  font-size: 0.9em;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-content: stretch;
-  padding: 0.4em;
 }
 .health-index {
   font-weight: bold;
-  border: 2px solid red;
+  font-size: 1.2em;
+  border: 2px solid $dark-grey;
 }
 .data-field {
   flex: 1 1 60%;

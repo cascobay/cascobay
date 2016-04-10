@@ -14,6 +14,9 @@
   flex-flow: column;
 }
 .sidebar-header {
+  background-color: $light-grey;
+  color: $main-blue;
+  border-radius: 20px;
   z-index: 5;
   flex: 1 1 10%;
   display: flex;
@@ -22,12 +25,18 @@
 
 }
 .sidebar-body {
+  background-color: $light-grey;
+  color: $main-blue;
+  border-radius: 20px;
   margin: 1% 0;
   flex: 3 1 75%;
   padding: 0.5em;
-  overflow: scroll;
+  overflow: auto;
 }
 .sidebar-footer {
+  background-color: $light-grey;
+  color: $main-blue;
+  border-radius: 20px;
   flex: 1 1 5%;
   display: flex;
   justify-content: space-around;
