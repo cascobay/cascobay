@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react'
+import Button from './Button'
 
 const Header = React.createClass({
   render () {
+    const handleClick= () => {
+      console.log('hey, this is something happening from within the buttons parent component!')
+    }
     return (
         <header className='header layout-header'>
           <div className='logo'>
@@ -10,6 +14,7 @@ const Header = React.createClass({
             </a>
           </div>
           <h1 className='title'>Casco Bay Health Index</h1>
+          <Button buttonType='internal' href='#' text='Button!' handleClick={handleClick}></Button>
         </header>
     )
   }

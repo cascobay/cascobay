@@ -1,0 +1,37 @@
+@import '../colors.scss';
+// .viewButton {
+//   font-size: 1.3rem;
+//   flex: 1 1 auto;
+//   padding: 3px 5px;
+// }
+// .activeViewButton {
+//   font-size: 1.3rem;
+//   flex: 1 1 auto;
+//   padding: 3px 5px;
+//   font-weight: bolder;
+//   background: rgba($main-blue ,.6);
+// }
+// base button style
+.button {
+  background-color: $light-grey;
+  opacity: 0%;
+}
+
+// button types
+.button-external {
+
+}
+.button-internal {
+
+}
+
+// button lifecycle styles
+.button-over {
+  opacity: 100%;
+}
+.button-pressed {
+  box-shadow: 10px 10px 10px #888888;
+}
+.button-active {
+
+}
