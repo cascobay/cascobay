@@ -1,20 +1,12 @@
 @import '../colors.scss';
-// .viewButton {
-//   font-size: 1.3rem;
-//   flex: 1 1 auto;
-//   padding: 3px 5px;
-// }
-// .activeViewButton {
-//   font-size: 1.3rem;
-//   flex: 1 1 auto;
-//   padding: 3px 5px;
-//   font-weight: bolder;
-//   background: rgba($main-blue ,.6);
-// }
-// base button style
+
 .button {
   background-color: $light-grey;
-  opacity: 0%;
+  color: $main-teal;
+}
+.button a {
+  color: $main-teal;
+  text-decoration: none;
 }
 
 // button types
@@ -27,10 +19,13 @@
 
 // button lifecycle styles
 .button-over {
-  opacity: 100%;
+  background-color: rgba($light-grey, 0.9);
+  color: lighten($main-teal, 10%);
+  cursor: pointer;
 }
 .button-pressed {
-  box-shadow: 10px 10px 10px #888888;
+  box-shadow: 5px 5px 5px $main-blue;
+  background-color: rgba($light-grey, 0.6);
 }
 .button-active {
 

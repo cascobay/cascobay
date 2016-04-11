@@ -29,3 +29,10 @@ a {
 h1 {
   font-size: 2.5em;
 }
+
+::selection {
+  background: $accent-yellow; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $accent-yellow; /* Gecko Browsers */
+}

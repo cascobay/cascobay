@@ -3,10 +3,25 @@
 .navbar {
   color: $accent-yellow;
   display: flex;
+  margin: 0 0 2% 0;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  background: rgba(0,0,0,.3);
+
+}
+
+.navbar .button {
+  flex: 1 1 auto;
+  align-self: stretch;
+  padding: 3% 1%;
+  font-weight: bold;
+  font-size: 1.15em;
+}
+.navbar .button-pressed {
+  box-shadow: 5px 5px 5px $accent-yellow;
+}
+.navbar .active-button {
+  box-shadow: 0 4px 4px -2px $accent-yellow;
+  background-color: darken($light-grey, 10);
 }
 
 .interpretation-view {
@@ -36,8 +51,8 @@
   flex: 1 1 40%;
 }
 .information-icon {
-  height: 3em;
-  width: 3em;
+  height: 2em;
+  width: 2em;
 }
 .value-poor {
   background: rgba($poor-quality, 1);

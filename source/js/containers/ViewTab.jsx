@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { selectView } from 'actions'
-import Tab from 'components/Tab'
+import Button from 'components/Button'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
+    handleClick: () => {
       dispatch(selectView(ownProps.view))
     }
   }
@@ -19,6 +19,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const ViewTab = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Tab)
+)(Button)
 
 export default ViewTab

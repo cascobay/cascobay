@@ -44,8 +44,10 @@
 
 .sidebar-footer-link {
   padding: 0 1em;
-  border: 1px solid red;
-  align-self: center;
+  margin: 1%;
+  text-decoration: none;
+  border-radius: 10px;
+  align-self: stretch;
   flex: 1 1 auto;
 }
 

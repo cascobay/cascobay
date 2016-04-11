@@ -3,8 +3,8 @@
 
 
 .header {
-  color: $light-grey;
-  background: linear-gradient(to top, rgba($main-blue,0.8), rgba($main-blue,0.95) 100%);
+  color: $main-blue;
+  background: linear-gradient(to top, rgba($light-grey,0.8), rgba($light-grey,0.95) 100%);
   box-shadow: 0px 2px 20px black;
   display: flex;
   justify-content: center;
