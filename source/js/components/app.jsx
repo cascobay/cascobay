@@ -4,10 +4,10 @@ import React from 'react';
 import style from 'styles/main.scss';
 
 // Import react components
-import Header from 'components/header';
-import SidebarContainer from 'containers/sidebarContainer';
+import Header from 'components/Header';
+import SidebarContainer from 'containers/SidebarContainer';
 import IntroSidebar from 'components/IntroSidebar'
-import MapContainer from 'containers/mapContainer';
+import MapContainer from 'containers/MapContainer';
 
 // App component
 const App = React.createClass({
