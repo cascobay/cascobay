@@ -14,7 +14,7 @@ module.exports = {
     colors: true,
     progress: true
   },
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
   module: {
     //when webpack bundles modules together, it will lint first, then translate to es2015
     preLoaders: [
@@ -67,6 +67,16 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+            warnings: false
+        }
+    }),
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
   ]
 }
