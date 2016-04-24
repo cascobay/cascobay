@@ -2,8 +2,7 @@ import {
   REQUEST_DATA, RECEIVE_DATA, SELECT_FEATURE
 } from 'constants'
 
-// Handle the data actions
-
+// How to handle requesting and receiving data
 export function cartodbData(state = {
   isFetching: false,
   selectedFeature: [],
@@ -24,6 +23,7 @@ export function cartodbData(state = {
   }
 }
 
+//  Add the currently selected feature to the app state
 export function selectedFeature(state = {}, action) {
   switch (action.type) {
     case SELECT_FEATURE:

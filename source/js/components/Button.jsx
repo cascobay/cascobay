@@ -9,6 +9,7 @@ const Button = React.createClass({
     }
   },
   render () {
+    // Add classnames based on the props that are handed down to a button
     let btnClass = classNames({
       'button': true,
       'button-external': this.props.buttonType === 'external',
@@ -46,11 +47,9 @@ const Button = React.createClass({
     this.setState({hover: false, pressed: false})
   },
   _onMouseDown(){
-    console.log('mouse down!')
     this.setState({pressed: true})
   },
   _onMouseUp(){
-    console.log('mouse up!')
     this.setState({pressed: false})
   },
   _onClick() {

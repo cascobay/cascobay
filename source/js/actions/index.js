@@ -76,10 +76,9 @@ export function selectFeature(feature) {
 
 export function clickFeature(feature) {
   return function(dispatch) {
-    console.log('Entering Map Mode')
     dispatch(enterMap())
 
-    console.log('Selecting Feature...')
+    console.log('Selected Feature', feature)
     dispatch(selectFeature(feature))
   }
 }

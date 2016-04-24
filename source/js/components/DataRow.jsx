@@ -10,7 +10,7 @@ const DataRow = React.createClass({
       'health-index': this.props.rowType === 'health-index',
       'value-good': value > 85 && value <=100,
       'value-fair':  value > 75 && value <=85,
-      'value-poor':  value > 0 && value <=75
+      'value-poor':  value >= 0 && value <=75
     })
 
     return (
