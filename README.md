@@ -33,21 +33,23 @@ The code uses [Webpack](https://webpack.github.io/) to package all the code unde
 
 To edit the code, you'll want to use the scripts included in `package.json` so you can test changes locally before pushing them into the production file on github (the gh-pages branch).  You will need a little command line to do this, but it's not so scary!  You'll need the command line for Git (version control that connects to the Github repository), and Webpack (which uses NPM).  Here's a good source for learning [Git](https://help.github.com/articles/good-resources-for-learning-git-and-github/).  And here's an introduction to [Webpack](http://survivejs.com/webpack_react/developing_with_webpack/).
 
-To get started:
-1.  Open a command line
-2.  Find a place on your computer you'd like to keep the repository:  
-`cd path/to/where/you/want/to/store`
-3.  Download (clone) the Github repository  
-`git clone https://github.com/USERNAME/REPOSITORY_NAME.git`
+###### To get started:  
+1.  Open a command line  
+2.  Find a place on your computer you'd like to keep the repository:    
+`cd path/to/where/you/want/to/store`  
+3.  Download (clone) the Github repository    
+`git clone https://github.com/USERNAME/REPOSITORY_NAME.git`  
 4.  Go into the newly created folder:  
-`cd REPOSITORY_NAME`  
-5.  Start the Webpack Development Server:  
-`npm start`  
-This will bundle all the source files and serve them locally.
-6.  Open a browser and go to **localhost:8080**  
+`cd REPOSITORY_NAME`   
+5.  Install all the dependencies listed in `package.json`:  
+`npm install`  
+6.  Start the Webpack Development Server:    
+`npm start`   
+This will bundle all the source files and serve them locally.  
+7.  Open a browser and go to **localhost:8080**  
 You should now see the website.  
-7.  Make any changes to the `source` files.  When you save, Webpack will automatically refresh the webpage in your browser to show the changes!  Try changing the `$main-blue` value in `source/styles/colors.scss`.  Save and check the web page to see Webpack working.
-8.  To end the development server, go to the command line and enter press `CTRL + C`
+8.  Make any changes to the `source` files.  When you save, Webpack will automatically refresh the webpage in your browser to show the changes!  Try changing the `$main-blue` value in `source/styles/colors.scss`.  Save and check the web page to see Webpack working.
+9.  To end the development server, go to the command line and enter press `CTRL + C`
 
 If you decide you want to keep the changes you've made and have them reflected in the live site, you'll want to do two things.  You want to update the `gh-pages` Github branch (which is hosting the live site).  
 
