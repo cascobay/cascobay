@@ -9,7 +9,6 @@ const logger = createLogger()
 
 // Making our store from our reducer!
 export default function configureStore() {
-  console.log('STORE IS IN DEVELOPMENT')
   return createStore(
     cascoApp,
     applyMiddleware(thunk, promise, logger)
