@@ -19,7 +19,6 @@ const DataRow = React.createClass({
       <div>
         <div className={rowClass}>
           <div className='data-field'>{this.props.dataField}</div>
-          <InfoIcon src='./assets/info-icon.svg' />
           <div className='data-value'>{this.props.dataValue}</div>
         </div>
       </div>
