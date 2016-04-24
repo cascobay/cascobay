@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
-import InfoIcon from './InfoIcon'
-
 const DataRow = React.createClass({
   render () {
     // conditionally set row className based on conditional props
