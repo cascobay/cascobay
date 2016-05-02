@@ -41,7 +41,7 @@ const Map = React.createClass({
 
     //  redux's connect() method allows us to call action creators as component props
     //  this is equivalent to calling  dispatch(getCartodbData())
-    this.props.getCartodbData('bfriedly', 'SELECT * FROM cascobay_2005_2012_waterquality')
+    this.props.getCartodbData('cascobay', 'SELECT * FROM cascobay_2005_2012_waterquality')
   },
   componentWillReceiveProps(nextProps) {
     //  if the new props.cartodbData is a valid geojson object and is different than the current props.cartodbData, then run our _addGeoJson method
