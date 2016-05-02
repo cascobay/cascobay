@@ -1,10 +1,10 @@
 // import L from 'leaflet';
 // These variables are local to this module and are used to help populate the exported 'configs' object
-const mbAccessToken = 'pk.eyJ1IjoiYmZyaWVkbHkiLCJhIjoiV2k5ZDRoZyJ9.suhdNFpeRtxt1OTpUVc2Tw';
+const mbAccessToken = 'pk.eyJ1IjoiY2FzY29iYXkiLCJhIjoiY2luYnQxcTdhMG5xMnYwa3FjejNianJiZCJ9.Er9DVYE8-SXb73TWepNVCQ';
 const mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mbAccessToken;
 const mapboxAttribution= 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
       '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Made with <a href="https://cartodb.com">CartoDB</a>, ' +
+      'Powered by <a href="https://cartodb.com">CartoDB</a>, ' +
       'Imagery © <a href="http://mapbox.com">Mapbox</a>';
 const grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mapboxAttribution});
 const satellite = L.tileLayer(mbUrl, {id: 'mapbox.satellite', attribution: mapboxAttribution});
