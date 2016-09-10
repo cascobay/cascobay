@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .js --fix",
     "start": "webpack-dev-server",
     "build": "webpack -p",
-    "deploy": "webpack -p && git add public/bundle.js && git commit -m 'add bundled js' && git subtree push --prefix public origin gh-pages"
+    "deploy": "webpack -p && git push origin :gh-pages && git subtree push --prefix public origin gh-pages"
   },
   "author": "Brandyn Friedly",
   "license": "ISC",
