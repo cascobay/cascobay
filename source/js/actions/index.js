@@ -55,11 +55,10 @@ export function getCartodbData(username, query) {
 
     // changes the state to isFetching: true until api call returns our data
     dispatch(requestData(query))
-
     fetch(
       'https://' +
       username +
-      '.cartodb.com/api/v2/sql?format=GeoJSON&q=' +
+      '.carto.com/api/v2/sql?format=GeoJSON&q=' +
       query
     )
       .then(response => response.json())
