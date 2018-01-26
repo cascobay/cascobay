@@ -16,7 +16,7 @@ const IntroSidebar = React.createClass({
             Overall, the water quality in Casco Bay is good, but there are instances when low oxygen, low pH, and murky waters are cause for concern.
           </p>
           <p className='intro-paragraph'>
-            The relative rankings were calculated by analyzing dissolved oxygen, water clarity, and pH data from shoreside sites that our volunteer Citizen Stewards monitored for the past five years.  The values we chose to use were the 90th percentile of the dissolved oxygen percent saturation, the mean of the Secchi depth, and the mean of the diurnal differences in pH.
+            The relative rankings were calculated by analyzing dissolved oxygen, water clarity, and pH data from shoreside sites that our volunteer Citizen Stewards monitored from 2005 - 2017.  The values we chose to use were the 90th percentile of the dissolved oxygen percent saturation, the mean of the Secchi depth, and the mean of the diurnal differences in pH.
           </p>
           <p className='intro-paragraph'>
             For detailed information, read our <a href='http://www.cascobay.org/health-index'>Commonly Asked Questions about the Casco Bay Health Index. </a>
